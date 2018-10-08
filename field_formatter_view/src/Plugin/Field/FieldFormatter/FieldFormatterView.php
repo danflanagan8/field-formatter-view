@@ -60,8 +60,8 @@ class FieldFormatterView extends EntityReferenceFormatterBase implements Contain
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
    */
-  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view, array $third_party_settings, LoggerChannelFactoryInterface $logger_factory, EntityTypeManagerInterface $entity_type_manager) {
-    parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $label, $view, $third_party_settings);
+  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, LoggerChannelFactoryInterface $logger_factory, EntityTypeManagerInterface $entity_type_manager) {
+    parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $label, $view_mode, $third_party_settings);
     $this->loggerFactory = $logger_factory;
     $this->entityTypeManager = $entity_type_manager;
   }
@@ -76,7 +76,7 @@ class FieldFormatterView extends EntityReferenceFormatterBase implements Contain
       $configuration['field_definition'],
       $configuration['settings'],
       $configuration['label'],
-      $configuration['view'],
+      $configuration['view_mode'],
       $configuration['third_party_settings'],
       $container->get('logger.factory'),
       $container->get('entity_type.manager')
