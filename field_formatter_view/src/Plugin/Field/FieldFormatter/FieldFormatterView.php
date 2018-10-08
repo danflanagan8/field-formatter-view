@@ -25,13 +25,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class FieldFormatterView extends EntityReferenceFormatterBase implements ContainerFactoryPluginInterface {
 
   /**
-   * The number of times this formatter allows rendering the same entity.
-   *
-   * @var int
-   */
-  const RECURSIVE_RENDER_LIMIT = 20;
-
-  /**
    * The logger factory.
    *
    * @var \Drupal\Core\Logger\LoggerChannelFactoryInterface
@@ -44,18 +37,6 @@ class FieldFormatterView extends EntityReferenceFormatterBase implements Contain
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected $entityTypeManager;
-
-  /**
-   * An array of counters for the recursive rendering protection.
-   *
-   * Each counter takes into account all the relevant information about the
-   * field and the referenced entity that is being rendered.
-   *
-   * @see \Drupal\Core\Field\Plugin\Field\FieldFormatter\EntityReferenceEntityFormatter::viewElements()
-   *
-   * @var array
-   */
-  protected static $recursiveRenderDepth = [];
 
   /**
    * Constructs a EntityReferenceEntityFormatter instance.
