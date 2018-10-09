@@ -75,8 +75,7 @@ class FieldFormatterView extends EntityReferenceFormatterBase {
     $display_id = $view_parts[1];
     $view = views_embed_view($view_id, $display_id, $args);
 
-    return $view;
+    return array($view);
   }
-
 
 }
